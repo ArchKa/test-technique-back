@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string("name");
             $table->string("description");
             $table->time("duration");
+            $table->timestamps();
         });
 
         Schema::create("users", function (Blueprint $table) {
@@ -24,7 +25,6 @@ return new class extends Migration {
         });
 
         Schema::create("activity_data", function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("activity_id");
             $table->time("point_in_time");
@@ -39,5 +39,6 @@ return new class extends Migration {
     {
         Schema::drop("activities");
         Schema::drop("users");
+        Schema::drop("activity_data");
     }
 };
